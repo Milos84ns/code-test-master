@@ -63,7 +63,7 @@ public class CacheablePaymentRepository implements PaymentRepository {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         final String[] values = line.split(" ");
-                        final Payment payment = new Payment(values[0], new BigDecimal(values[1]));
+                        final Payment payment = new Payment(values[0], new BigDecimal(values[1]), BigDecimal.valueOf(0.0));
                         saveToCache(payment);
                     }
                 }
@@ -84,6 +84,6 @@ public class CacheablePaymentRepository implements PaymentRepository {
     private void saveToCache(Payment payment) {
         payments.compute(
                 payment.getCcy(),
-                (ccy, p) -> new Payment(ccy, p == null ? payment.getAmount() : p.getAmount().add(payment.getAmount())));
+                (ccy, p) -> new Payment(ccy, p == null ? payment.getAmount() : p.getAmount().add(payment.getAmount()), BigDecimal.valueOf(0.0)));
     }
 }

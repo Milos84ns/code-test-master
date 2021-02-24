@@ -17,7 +17,7 @@ public class PrintScheduler {
     private final long period;
     private final TimeUnit timeUnit;
 
-    private ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     public PrintScheduler(final PaymentRepository paymentRepository) {
         this(paymentRepository, 1, 1, TimeUnit.MINUTES);

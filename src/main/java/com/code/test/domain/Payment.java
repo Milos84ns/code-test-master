@@ -6,10 +6,12 @@ public class Payment {
 
     private final String ccy;
     private final BigDecimal amount;
+    private final BigDecimal amountUSD; //TODO
 
-    public Payment(String ccy, BigDecimal amount) {
+    public Payment(String ccy, BigDecimal amount, BigDecimal amountUSD) {
         this.ccy = ccy;
         this.amount = amount;
+        this.amountUSD = amountUSD;
     }
 
     public String getCcy() {

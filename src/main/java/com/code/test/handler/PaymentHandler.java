@@ -18,7 +18,7 @@ public class PaymentHandler implements InputHandler {
         final String[] values = input.split(" ");
         final String ccy = values[0];
         final BigDecimal amount = new BigDecimal(values[1]);
-        final Payment payment = new Payment(ccy, amount);
+        final Payment payment = new Payment(ccy, amount, BigDecimal.valueOf(0.0));
         paymentRepository.save(payment);
     }
 

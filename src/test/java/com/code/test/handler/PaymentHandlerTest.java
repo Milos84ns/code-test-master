@@ -16,7 +16,7 @@ public class PaymentHandlerTest {
         final PaymentHandler paymentHandler = new PaymentHandler(paymentRepository);
         paymentHandler.process("USD 100");
 
-        verify(paymentRepository, times(1)).save(refEq(new Payment("USD", BigDecimal.valueOf(100))));
+        verify(paymentRepository, times(1)).save(refEq(new Payment("USD", BigDecimal.valueOf(100), BigDecimal.valueOf(0.0))));
     }
 
 }

@@ -35,18 +35,18 @@ public class CacheablePaymentRepositoryTest {
 
             assertEquals(1, repository.getAll().size());
         } finally {
-            Files.delete(file);
+           Files.delete(file);
         }
     }
 
     private void saveAndVerify(final PaymentRepository repository) {
-        repository.save(new Payment("USD", new BigDecimal("100")));
+        repository.save(new Payment("USD", new BigDecimal("100"), BigDecimal.valueOf(100.0)));
 
         assertEquals(1, repository.getAll().size());
         assertEquals("USD", repository.get("USD").getCcy());
         assertEquals(new BigDecimal("100"), repository.get("USD").getAmount());
 
-        repository.save(new Payment("USD", new BigDecimal("-100")));
+        repository.save(new Payment("USD", new BigDecimal("-100"), BigDecimal.valueOf(100.0)));
 
         assertEquals(1, repository.getAll().size());
         assertEquals("USD", repository.get("USD").getCcy());
