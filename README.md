@@ -7,4 +7,4 @@ Main.java
 ``
 
 ### TODO
-Specify USD equivalent rate and calculate correponding USD amount for non-USD currency
+-currency change
